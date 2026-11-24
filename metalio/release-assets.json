@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "tag": "metalio-s31-v0.4.8-metalio-s31",
+  "files": {
+    "bootloader.bin": {
+      "asset": "chenread-metalio47-0.4.8-metalio-s31-bootloader.bin",
+      "size": 22448,
+      "sha256": "b4569d52f95f31df8e1b34793879253b5d4d376dd9ee07d48b7f31a198602607"
+    },
+    "partitions.bin": {
+      "asset": "chenread-metalio47-0.4.8-metalio-s31-partitions.bin",
+      "size": 3072,
+      "sha256": "1656eb8fe2d10e4715b5bddd20d59e3a35eaed6d1ab408f70caa57ac2bc7455f"
+    },
+    "firmware.bin": {
+      "asset": "chenread-metalio47-0.4.8-metalio-s31-firmware.bin",
+      "size": 5407008,
+      "sha256": "240a19c2fbff8bb24aa42b6e42d089ec1f493f005326bbb6470c280b4ccd3f62"
+    },
+    "ota_data_initial.bin": {
+      "asset": "chenread-metalio47-0.4.8-metalio-s31-ota_data_initial.bin",
+      "size": 8192,
+      "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+    }
+  }
+}

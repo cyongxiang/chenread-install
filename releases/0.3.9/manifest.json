@@ -1,0 +1,37 @@
+{
+  "name": "chenread 阅读固件",
+  "version": "0.3.9",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "../../Pico-update-0.3.9.bin",
+          "offset": 65536
+        },
+        {
+          "path": "ota_data_initial.bin",
+          "offset": 13697024
+        }
+      ]
+    }
+  ],
+  "pico_ota": {
+    "layout": "pico-dual-4m-v1",
+    "base_version": "0.3.9",
+    "minimum_base_version": "0.2.0",
+    "online_ota_base_version": "0.2.0",
+    "rollback": true
+  },
+  "updated_at": "2026-11-05T14:50:08+08:00"
+}

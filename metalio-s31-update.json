@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "version": "0.4.8-metalio-s31",
+  "project": "Chenread_Metalio_S31",
+  "board": "Metalio-EINK4-Plus-S31",
+  "layout": "chenread-metalio-s31-single-8m-v2",
+  "minimum_base_version": "0.4.7-metalio-s31",
+  "url": "https://chenread.pages.dev/Metalio-S31-update-0.4.8-metalio-s31.bin",
+  "size": 5407008,
+  "sha256": "240a19c2fbff8bb24aa42b6e42d089ec1f493f005326bbb6470c280b4ccd3f62",
+  "notes": "本次 0.4.8 更新：彻底修正长时间休眠后无封面、字体回原始且无法切换的问题。\n1. 改为状态驱动恢复：不再依赖易丢失的唤醒边沿，只要SD真正挂载且IO就绪就补齐。\n2. SD就绪后自动重建字体目录并重新激活所选字体，字体列表立即恢复可选，无需重启。\n3. 封面、头像缓存按最终挂载状态失效并重绘，休眠醒来直接看到完整书架。\n4. 幂等收敛：恢复动作可安全重复执行，直到字体与封面都就绪才结束。\n5. 保留 3 秒超时只放开界面门控、后台持续重挂 SD 的既有机制。\n6. 保留高压轨 8 秒保持、EPUB脚注、横屏复位、左右侧固定翻页分区等既有修复。\n7. 保留联网稳定性、划线想法同步、栈扩容等既有修复。\n8. 升级不擦除数据，登录态、WiFi 密码与阅读进度全部保留；保留 0.4.7 用于回退。"
+}

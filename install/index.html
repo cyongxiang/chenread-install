@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="chenread 0.4.7 在线刷机：用电脑连接小纸 Pico，网页四段完整烧录（含分区表）。">
+<title>安装 chenread · 在线刷机</title>
+<style>
+  :root{--ink:#111;--sub:#5b6470;--line:#e3e7ec;--bg:#fff;--accent:#111;--soft:#f6f8fa;--warn:#8a5a00;--warnbg:#fff8e6}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+       line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+  a{color:var(--ink)}
+  header{border-bottom:1px solid var(--line)}
+  .header-inner{display:flex;align-items:center;gap:20px;padding:18px 0;flex-wrap:wrap}
+  .wordmark{font-weight:700;font-size:20px;text-decoration:none;letter-spacing:.02em}
+  .wordmark span{color:#9aa4b0}
+  .header-inner nav{margin-left:auto;display:flex;gap:18px;font-size:15px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#9aa4b0;margin:0}
+  h1{font-size:38px;line-height:1.25;margin:12px 0 10px;letter-spacing:-.01em}
+  h2{font-size:26px;margin:0 0 6px}
+  h3{font-size:18px;margin:0 0 6px}
+  .lede{font-size:17px;color:var(--sub);margin:0 0 22px}
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .version-bar{display:inline-flex;align-items:center;gap:10px;background:var(--soft);
+       border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:14px;margin-bottom:26px}
+  .version-bar b{font-weight:700}
+  .version-bar em{font-style:normal;color:var(--sub)}
+  .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  @media(max-width:720px){.mode-grid{grid-template-columns:1fr}h1{font-size:30px}}
+  .card{border:1px solid var(--line);border-radius:16px;padding:22px;background:#fff}
+  .card .num{font-size:12px;letter-spacing:.14em;color:#9aa4b0}
+  .card p{color:var(--sub);font-size:15px;margin:0 0 16px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border:0;border-radius:12px;
+       padding:13px 22px;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none}
+  .btn[disabled],.btn.is-off{background:#c9d0d8;cursor:not-allowed}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .note{background:var(--warnbg);border:1px solid #f0e0b8;color:var(--warn);
+        border-radius:12px;padding:14px 18px;font-size:14.5px;margin-top:20px}
+  .danger{background:#fdecec;border:1px solid #e9b4b4;color:#8a1f1f;
+        border-radius:12px;padding:16px 20px;font-size:15px;margin-bottom:24px}
+  .danger strong{font-weight:700}
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:14px}
+  ol.steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start}
+  ol.steps li::before{content:counter(s,decimal-leading-zero);flex:0 0 auto;font-weight:700;
+       color:#9aa4b0;font-size:14px;padding-top:2px}
+  ul.plain{padding-left:20px;margin:0;color:var(--sub)}
+  ul.plain li{margin:6px 0}
+  details{border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px;background:#fff}
+  summary{cursor:pointer;font-weight:600}
+  details p{color:var(--sub);font-size:15px;margin:10px 0 0}
+  code{background:var(--soft);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13.5px}
+  footer{padding:34px 0;color:var(--sub);font-size:14px}
+  .hash{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;word-break:break-all;color:var(--sub)}
+  .fallback{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+</style>
+<script type="module" src="./vendor/web/install-button.js"></script>
+</head>
+<body>
+<header><div class="wrap header-inner">
+  <a class="wordmark" href="../">chenread<span>.</span></a>
+  <nav>
+    <a href="../#flash-action">返回主页 ↗</a>
+    <a href="#prepare">准备</a>
+    <a href="#faq">常见问题</a>
+  </nav>
+</div></header>
+
+<main id="main">
+
+<section><div class="wrap">
+  <p class="eyebrow">INSTALL CHENREAD</p>
+  <h1>安装 chenread</h1>
+  <p class="lede">第一次安装、修复系统，或把手上的小纸升到 0.4.7。<br>用数据线连上电脑，在网页里四段完整烧录。</p>
+
+  <div class="version-bar"><b>chenread 0.4.7</b><em>微信读书同步不再误报存储失败 · 心跳时长不再重复上报 · Anki 导入与进度写原子化更抗断电</em></div>
+
+  <div class="danger">
+    <strong>升级前必读：从 0.3.9 及更早版本升级，必须用「全新烧录」并勾选「擦除设备」。</strong><br>
+    0.3.10 起分区表已从双槽 4MB 换成单槽 8MB，0.4.7 应用镜像为 4,424,144 字节，装不进旧的 4MB 槽。只刷应用分区、不刷分区表会导致设备无法启动，反复按复位、拔电重插都救不回来。书籍和字体在 TF 卡上，不会丢失。
+  </div>
+
+  <div class="mode-grid">
+    <article class="card">
+      <span class="num">01 / 适用所有版本 · 推荐</span>
+      <h3>全新烧录（四段）</h3>
+      <p>一次写入启动程序、分区表、应用和启动标记。第一次安装、修复起不来的设备、从 0.3.9 及更早升级，都用它。</p>
+      <esp-web-install-button manifest="./manifest.json">
+        <span slot="unsupported">当前浏览器不支持网页刷机，请用电脑版 Chrome 或 Edge 打开本页。</span>
+        <span slot="not-allowed">本页需要通过 HTTPS 打开才能刷机。</span>
+        <button slot="activate" class="btn" type="button">全新烧录（四段）</button>
+      </esp-web-install-button>
+    </article>
+
+    <article class="card">
+      <span class="num">02 / 仅限 0.3.10 及以上</span>
+      <h3>TF 卡升级（不连电脑）</h3>
+      <p>    只适用于已经是单槽 8MB 分区的设备（0.3.10 / 0.3.11 / 0.4.0 / 0.4.1 / 0.4.2 / 0.4.3 / 0.4.4）。<strong>0.3.9 及更早请勿使用</strong>，请回到左侧用网页刷机。此方式不通过网页刷机按钮。</p>
+      <a class="btn ghost" href="./firmware.bin" download="Pico-update.bin">下载 0.4.7 升级 Bin ↓</a>
+    </article>
+  </div>
+
+  <div class="note">
+    点击「全新烧录」后，<strong>页面不会自动连接设备</strong>：请在浏览器弹出的串口列表里选择你的小纸，再确认连接。烧录过程中不要拔线。<br>
+    从 0.3.9 及更早升级时，安装对话框里请<strong>勾选「擦除设备」</strong>；已是 0.3.10 及以上请<strong>不要勾</strong>，否则会清掉微信读书登录态、WiFi 密码和阅读进度、需要重新扫码；不勾才能全部保留。<br>
+    刷写完网页会自动重启设备；若重启后屏幕仍不亮，多半是停在下载模式，<strong>拔掉数据线再插上</strong>（或短按复位键）即可正常开机。若怎么都起不来，重新执行一次左侧「全新烧录」即可恢复。
+  </div>
+</div></section>
+
+<section id="prepare"><div class="wrap">
+  <p class="eyebrow">BEFORE YOU START</p>
+  <h2>开始前，准备好这三样。</h2>
+  <ol class="steps" style="margin-top:20px">
+    <li><div><h3>小纸 Pico 与 USB 数据线</h3><p style="color:var(--sub);font-size:15px;margin:0">使用<strong>能传输数据</strong>的线材（不少充电线只能供电）。连接稳定，烧录期间不要拔线。</p></div></li>
+    <li><div><h3>支持 Web Serial 的电脑浏览器</h3><p style="color:var(--sub);font-size:15px;margin:0">桌面版 <strong>Chrome</strong> 或 <strong>Edge</strong>，并通过 HTTPS 打开本页。手机浏览器暂不支持。</p></div></li>
+    <li><div><h3>确认当前版本与备份</h3><p style="color:var(--sub);font-size:15px;margin:0">先在设备「设置 → 关于」看清当前固件版本，决定要不要擦除；备份 TF 卡上的重要文件与阅读记录；确认型号为 <code>RDP-G01-W</code>（ESP32-S3 + 4.7″ 墨水屏，16MB Flash）。</p></div></li>
+  </ol>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">WHAT'S NEW</p>
+  <h2>0.4.7 更新了什么。</h2>
+    <ul class="plain" style="margin-top:16px;font-size:15.5px">
+    <li><strong>🔧 修复「书籍目录被设成 System Volume Information」</strong>：部分设备的书籍目录被误指到 TF 卡根目录的 Windows 系统卷目录，下载的书、书号旁车、云缓存全跑进那个文件夹，而 <code>books</code> 是空的。本版开机自动检测，命中即改回 <code>/sdcard/books</code> 并写回设置；之后仍尊重手动选择的其它目录。<strong>已经在 SVI 里的旧书不会自动搬家</strong>，请用 U 盘模式把其中的 <code>.epub</code> / <code>.wrid</code> 复制到 <code>books</code>（勿格式化整卡）。</li>
+    <li><strong>🔧 微信读书书架后端加固（书架界面一行未改）</strong>：同步时跳过损坏记录、不再把坏字节画成乱码书名；写索引前整份读回校验，写坏了只丢临时文件、保住旧书架；会话写内部 NVS 失败不再误报「存储失败，请检查 TF 卡与空间」；同步无论成败都重读一次列表；用 <code>.epub.wrid</code> 书号旁车恢复「已下载」标记；FAT 残留 <code>.bak</code> 先清一次再改名。</li>
+    <li><strong>🔄 底栏「同步进度」改为「先拉后判」</strong>：0.4.4 先把本地进度 + 时长上传、再拉云端比对，云端被刷成本地后必然判定一致，二选一弹窗几乎不出现（即「点了没反应」）。本版先只读拉官方进度，<strong>只有云端与本地不同才弹「用云端 / 保留本地」</strong>；一致 / 云端无进度 / 失败超时各给明确提示；选「保留本地」时把本地较新的进度与时长补传云端，多设备同步才成立。</li>
+    <li><strong>✅ 阅读心跳上传完整保留</strong>：每 5 分钟自动传进度 + 时长、关书补尾报、失败自动重试、开机续传；手动锁屏或深睡不打断。</li>
+    <li><strong>⚠️ 升级请勿勾选「擦除设备」</strong>：四段全刷不含 NVS 分区，从 0.4.4 / 0.4.3 / 0.4.2 / 0.4.1 / 0.4.0 / 0.3.11 / 0.3.10 升级时勾了擦除会清掉微信读书登录态、WiFi 密码、阅读进度与最近阅读，需要重新扫码。从 0.3.9 及更早升级才必须勾。</li>
+    <li><strong>沿用 0.4.4/0.4.3 的 Anki 全融合</strong>：FSRS-6 科学遗忘曲线排复习、每日新卡 20 / 复习 200 双限额、错题本、数据写同名 <code>.akf</code> 伴随文件（原子写 + 校验）。以及 0.4.2 星瞳云二维码修复、0.4.1 跨文件脚注 + 阅读时长可靠同步。配套手机 APK 仍须官方 v1.5.2 / code 11。</li>
+    <li><strong>⚠️ 本版三项改动均完成编译验证但未经实机烧录</strong>，建议先在备用设备确认书籍目录、书架同步、同步进度二选一弹窗与心跳照常后再推广。新增代码许可「个人学习可、禁商用」。</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">IF ONLINE FAILS</p>
+  <h2>在线刷不了时的备用办法。</h2>
+  <p class="lede" style="margin-top:10px">下载升级 Bin 放 TF 卡，或取四段完整包用命令行刷。</p>
+  <div class="fallback">
+    <a class="btn ghost" href="./firmware.bin" download="Pico-update.bin">下载 TF 卡升级 Bin ↓</a>
+    <a class="btn ghost" href="../#flash-action">返回主页刷机区 ↗</a>
+  </div>
+  <ul class="plain" style="margin-top:16px;font-size:15px">
+    <li><strong>TF 卡升级</strong>：把下载到的 <code>Pico-update.bin</code> 放到 TF 卡根目录，在设备上「设置 → 升级和恢复 → 系统升级」里点「安装 TF 卡升级包」。<strong>仅适用于 0.3.10 及以上</strong>；固件会检查升级包是否超过分区容量，老版本会被拒绝并提示「升级包超过固件分区容量」。</li>
+    <li><strong>四段完整包</strong>：<code>bootloader.bin</code>(0x0)、<code>partitions.bin</code>(0x8000)、<code>firmware.bin</code>(0x10000)、<code>ota_data_initial.bin</code>(0xD10000)。网页「全新烧录」已包含全部四段；命令行刷机时四段缺一不可，尤其不能漏掉 <code>partitions.bin</code>。</li>
+  </ul>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <p class="eyebrow">FAQ</p>
+  <h2>你可能想知道。</h2>
+  <div style="margin-top:18px">
+    <details><summary>点了按钮，找不到我的设备？</summary><p>确认用的是能传数据的线，并关掉占用串口的其他程序（如串口监视器、烧录工具）。然后在小纸上进入「设置 → 升级和恢复 → BOOT 刷机」让它进入 BOOT 模式，再回来点按钮连接。若 COM 口在但连不上（深睡后 USB 挂死），在 Windows 设备管理器里禁用再启用该 USB 设备重新枚举即可，COM 号不变。</p></details>
+    <details><summary>要勾选「擦除设备」吗？</summary><p><strong>0.3.9 及更早：必须勾</strong>，因为分区表要从 4MB 双槽换成 8MB 单槽，旧的内部 storage 需要重建。<strong>0.3.10 / 0.3.11 / 0.4.0 / 0.4.1 / 0.4.2 / 0.4.3 / 0.4.4 / 0.4.7：不要勾</strong>，才能保留设置、WiFi 与微信读书登录态。无论哪种情况，书籍和字体都在 TF 卡上，不会丢。</p></details>
+    <details><summary>为什么从 0.3.9 及更早只刷应用会起不来？</summary><p>0.4.7 应用镜像 4,424,144 字节，旧双槽分区的单个槽只有 4,194,304 字节，多出 228,960 字节会写到分区外面；同时分区表没换成 8MB 单槽，启动校验失败。表现就是黑屏、反复重启无效。<strong>用「全新烧录」四段全刷一次即可恢复。</strong></p></details>
+    <details><summary>我从 0.4.4 升上来，要清空设备吗？</summary><p>不用。0.4.4 / 0.4.3 / 0.4.2 / 0.4.1 / 0.4.0 / 0.3.11 / 0.3.10 都是单槽 8MB 分区，分区表相同，升级只需刷应用（或用上方「下载 0.4.7 升级 Bin」经 TF 卡升级），不清内部 storage，设置、阅读进度、书签与笔记都保留。建议仍用上方网页四段全刷最稳。</p></details>
+    <details><summary>刷完起不来，怎么救？</summary><p>不用慌，书在 TF 卡里。重新用左侧「全新烧录」四段全刷一遍，并勾选「擦除设备」；连不上就先让设备进 BOOT 模式，或拔插电源冷启动。仍不行可用 esptool 命令行按 0x0 / 0x8000 / 0x10000 / 0xD10000 四段重刷。</p></details>
+    <details><summary>手机或 Safari 能刷吗？</summary><p>不能。网页刷机依赖 Web Serial，目前只有桌面版 Chrome / Edge 支持，且页面必须 HTTPS。</p></details>
+    <details><summary>刷完之后，书和字体从哪来？</summary><p>固件不带书籍和字体。把 EPUB / TXT 放进 TF 卡的 <code>books</code>，字体放进 <code>fonts</code>，也可以用 WiFi、热点或 USB 传输。</p></details>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <p>适用型号 RDP-G01-W · 基于 MindReset 开源固件，非官方发布</p>
+  <p>chenread 0.4.7 · 应用镜像 4,424,144 字节</p>
+  <p class="hash">SHA-256 6683823358f82021bac44754a30bb8abe7f693fac89088ddc723771b49b4d040</p>
+</div></footer>
+<script src="../analytics.js" defer></script>
+</body>
+</html>

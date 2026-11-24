@@ -1,0 +1,45 @@
+{
+  "name": "chenread",
+  "version": "0.4.8",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "improv": false,
+      "parts": [
+        {
+          "path": "bootloader.bin",
+          "offset": 0,
+          "size": 21232,
+          "sha256": "098df03d613ac6fe90bbadcb9ace062342cca28173ebc68611f8792bb92c2980"
+        },
+        {
+          "path": "partitions.bin",
+          "offset": 32768,
+          "size": 3072,
+          "sha256": "302dccee42aadfe6a1db4e32566fff4d3b28d21bad6d4787ced9820021683060"
+        },
+        {
+          "path": "firmware.bin",
+          "offset": 65536,
+          "size": 4468688,
+          "sha256": "b9377c17b1d1fec395d08fe9a753ff2b7e732ee093e405e8f2218d7603669905"
+        },
+        {
+          "path": "ota_data_initial.bin",
+          "offset": 13697024,
+          "size": 8192,
+          "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+        }
+      ]
+    }
+  ],
+  "pico_ota": {
+    "layout": "pico-single-8m-v1",
+    "base_version": "0.4.8",
+    "minimum_base_version": "0.3.10",
+    "online_ota_base_version": "0.3.10",
+    "rollback": false
+  },
+  "updated_at": "2026-11-14T08:59:37+08:00"
+}
