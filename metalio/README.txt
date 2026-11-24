@@ -1,6 +1,6 @@
 Metalio EINK 4 Plus V1.5 / ESP32-S31 / 34Pin E0470A14-AF
 仅用于此板型，不可刷入小纸 Pico。旧本地版先用 USB 或 TF 安装 rc100，之后在系统升级中联网检查。
-联网来源：GitHub Pages 优先，chenread.com 备用。
+联网来源：GitHub Pages 优先，chenread.pages.dev 备用。
 TF 固件文件名：Metalio-S31-update.bin，放入 TF 卡根目录。
 网页刷机支持直接从当前 S31 固件刷入，无需先恢复官方系统。兼容分区默认保留数据；需要切换分区时明确勾选清除机内设置，TF 文件保留。
 
