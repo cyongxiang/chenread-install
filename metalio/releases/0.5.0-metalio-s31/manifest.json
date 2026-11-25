@@ -5,7 +5,7 @@
   "project": "Chenread_Metalio_S31",
   "new_install_prompt_erase": true,
   "requires_bootloader_update": false,
-  "updated_at": "2026-11-25T15:48:54+08:00",
+  "updated_at": "2026-11-25T23:14:46+08:00",
   "builds": [
     {
       "chipFamily": "ESP32-S31",

@@ -6,7 +6,7 @@
       "version": "0.5.0-metalio-s31",
       "manifest": "metalio/releases/0.5.0-metalio-s31/manifest.json",
       "bin": "Metalio-S31-update-0.5.0-metalio-s31.bin",
-      "source_commit": "66c4b1e",
+      "source_commit": "4256907",
       "files": {
         "bootloader.bin": {
           "size": 22448,
