@@ -6,7 +6,7 @@
   "layout": "chenread-metalio-s31-single-8m-v2",
   "minimum_base_version": "0.4.7-metalio-s31",
   "url": "https://chenread.pages.dev/Metalio-S31-update-0.5.0-metalio-s31.bin",
-  "size": 5497056,
-  "sha256": "78680e8ea7e0af8c8cd01f5852ae3e886647efc69b0d6d9921b9f56215520385",
+  "size": 5496544,
+  "sha256": "5823eb9bd588825c85d9f806616bb9a21f9510b912653d26d8ab2f7b59e2afe1",
   "notes": "ChenRead 0.5.0：吸收 rc118 关键功能并保留全部 ChenRead 自有功能。\n1. 阅读页工具栏新增第 7 格「同步」，与微信读书书架「立即同步」同一套逻辑（先只读拉云端进度→分歧才二选一）。\n2. 笔记弹窗分页栏上移留白、关闭 X 命中区加大（144×96），横竖屏均生效。\n3. 开机自动进入书架。\n4. 排版范围扩展：字号 20–120、行高 100–300、段距 ±100%，滑动调节原子提交。\n5. 阅读器水波纹翻页效果；蓝牙 HID 翻页手柄。\n6. 设置双备份（标准 PICOSETP + 完整 PICOSETR）；同步失败按阶段+错误码提示。\n7. 书架中文拼音排序、阅读进度读取失败保护（防止误清零）。\n8. 保留微信读书、国风界面、笔记、字典、底栏等 ChenRead 独有功能。\n9. 升级不擦除数据，登录态、WiFi 密码、阅读进度与笔记全部保留。"
 }
