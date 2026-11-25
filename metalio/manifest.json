@@ -1,11 +1,11 @@
 {
   "name": "Metalio 4.7 V1.5",
-  "version": "0.4.8-metalio-s31",
+  "version": "0.5.0-metalio-s31",
   "board": "metalio47",
   "project": "Chenread_Metalio_S31",
   "new_install_prompt_erase": true,
   "requires_bootloader_update": false,
-  "updated_at": "2026-11-22T22:00:06+08:00",
+  "updated_at": "2026-11-25T15:48:54+08:00",
   "builds": [
     {
       "chipFamily": "ESP32-S31",
@@ -14,7 +14,7 @@
           "path": "bootloader.bin",
           "offset": 8192,
           "size": 22448,
-          "sha256": "b4569d52f95f31df8e1b34793879253b5d4d376dd9ee07d48b7f31a198602607"
+          "sha256": "e4bed9bca2d6d59dd8b9373ad45e48dc88a78b76313530355cb1804b339be85b"
         },
         {
           "path": "partitions.bin",
@@ -25,8 +25,8 @@
         {
           "path": "firmware.bin",
           "offset": 65536,
-          "size": 5407008,
-          "sha256": "240a19c2fbff8bb24aa42b6e42d089ec1f493f005326bbb6470c280b4ccd3f62"
+          "size": 5496976,
+          "sha256": "47fb80610274e66f4723009dbb0ab490bde87a9ff073253589326f21192925c8"
         },
         {
           "path": "ota_data_initial.bin",
@@ -39,9 +39,9 @@
   ],
   "pico_ota": {
     "layout": "chenread-metalio-s31-single-8m-v2",
-    "base_version": "0.4.8-metalio-s31",
+    "base_version": "0.5.0-metalio-s31",
     "minimum_base_version": "0.4.7-metalio-s31",
-    "online_ota_base_version": "0.4.8-metalio-s31",
+    "online_ota_base_version": "0.5.0-metalio-s31",
     "rollback": false
   }
 }
