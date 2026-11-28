@@ -5,7 +5,7 @@
   "project": "Chenread_Metalio_S31",
   "new_install_prompt_erase": true,
   "requires_bootloader_update": false,
-  "updated_at": "2026-11-28T21:54:43+08:00",
+  "updated_at": "2026-11-28T22:23:18+08:00",
   "builds": [
     {
       "chipFamily": "ESP32-S31",
@@ -25,8 +25,8 @@
         {
           "path": "firmware.bin",
           "offset": 65536,
-          "size": 5504080,
-          "sha256": "bba108725a21fcd9f3d5c0e1470fbd0b38c1e7a33aaa8f30dbd25c316f76c309"
+          "size": 5500032,
+          "sha256": "4a9ff65018c5c56c55c41fe21122ee7f575313c0821d501efd785bb875f982d7"
         },
         {
           "path": "ota_data_initial.bin",

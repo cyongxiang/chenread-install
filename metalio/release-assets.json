@@ -14,8 +14,8 @@
     },
     "firmware.bin": {
       "asset": "chenread-metalio47-0.5.1-metalio-s31-firmware.bin",
-      "size": 5504080,
-      "sha256": "bba108725a21fcd9f3d5c0e1470fbd0b38c1e7a33aaa8f30dbd25c316f76c309"
+      "size": 5500032,
+      "sha256": "4a9ff65018c5c56c55c41fe21122ee7f575313c0821d501efd785bb875f982d7"
     },
     "ota_data_initial.bin": {
       "asset": "chenread-metalio47-0.5.1-metalio-s31-ota_data_initial.bin",
